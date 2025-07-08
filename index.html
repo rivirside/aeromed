@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerospace, Dive, & Expedition Medicine Student Interest Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrollbar from canvas */
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .form-checkbox:checked {
+            background-color: #3b82f6; /* blue-500 */
+            border-color: #3b82f6; /* blue-500 */
+        }
+        .form-checkbox:checked:hover {
+            background-color: #2563eb; /* blue-600 */
+            border-color: #2563eb; /* blue-600 */
+        }
+        #starfield {
+            position: fixed; /* Use fixed to ensure it covers the whole viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .accordion-content.open {
+            max-height: 1000px; /* Set a large enough max-height */
+            transition: max-height 1s ease-in-out;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-button.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+        /* Spinner for button */
+        .loader {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+
+    <!-- Animated Background -->
+    <canvas id="starfield"></canvas>
+
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="max-w-5xl w-full bg-slate-800/70 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-12 border border-slate-700">
+
+            <!-- Header Section -->
+            <div class="text-center mb-8">
+                <h1 class="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wider text-cyan-300">ADEM SIG</h1>
+                <p class="mt-2 text-lg sm:text-xl text-slate-300">Aerospace, Dive, & Expedition Medicine</p>
+                <p class="mt-4 max-w-3xl mx-auto text-slate-400">
+                    Welcome new students! We're dedicated to exploring medicine in the most extreme environments. Let us know what excites you the most so we can tailor our events, research, and training opportunities for the upcoming year.
+                </p>
+            </div>
+
+            <!-- Sign-up Form -->
+            <form id="interestForm" class="space-y-6">
+
+                <!-- Personal Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium text-slate-300 mb-2">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-300" placeholder="John">
+                    </div>
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-slate-300 mb-2">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-300" placeholder="Doe">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2">School Email</label>
+                        <input type="email" id="email" name="email" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-300" placeholder="j.doe@medschool.edu">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Phone Number <span class="text-slate-500">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-300" placeholder="(123) 456-7890">
+                    </div>
+                </div>
+
+                <!-- Interests Accordion -->
+                <div>
+                    <h3 class="text-lg font-semibold text-cyan-300 mb-4 border-b border-slate-700 pb-2">What are your interests? (Check all that apply)</h3>
+                    <div class="space-y-2">
+                        <!-- Aerospace Medicine Accordion -->
+                        <div class="accordion-item bg-slate-900/50 rounded-lg border border-slate-700">
+                            <button type="button" class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-200 hover:bg-slate-700/50 rounded-t-lg">
+                                <span>Aerospace Medicine</span>
+                                <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="space-y-3">
+                                        <h5 class="font-medium text-slate-400">Research & Physiology</h5>
+                                        <div class="flex items-center"><input id="space-research" name="interests" type="checkbox" value="Space Research" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-research" class="ml-3 text-sm text-slate-300">Space Medicine Research</label></div>
+                                        <div class="flex items-center"><input id="space-physiology" name="interests" type="checkbox" value="Space Physiology" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-physiology" class="ml-3 text-sm text-slate-300">Spaceflight Physiology & Deconditioning</label></div>
+                                        <div class="flex items-center"><input id="space-radiation" name="interests" type="checkbox" value="Space Radiation" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-radiation" class="ml-3 text-sm text-slate-300">Space Radiation Health</label></div>
+                                        <div class="flex items-center"><input id="space-behavioral" name="interests" type="checkbox" value="Space Behavioral" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-behavioral" class="ml-3 text-sm text-slate-300">Behavioral Health in Isolation</label></div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <h5 class="font-medium text-slate-400">Clinical, Operations & Policy</h5>
+                                        <div class="flex items-center"><input id="space-clinical" name="interests" type="checkbox" value="Space Clinical" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-clinical" class="ml-3 text-sm text-slate-300">Clinical Practice (Aviation/Space)</label></div>
+                                        <div class="flex items-center"><input id="space-missions" name="interests" type="checkbox" value="Space Missions" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-missions" class="ml-3 text-sm text-slate-300">Designing Medical Missions for Space</label></div>
+                                        <div class="flex items-center"><input id="space-analog" name="interests" type="checkbox" value="Space Analog" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-analog" class="ml-3 text-sm text-slate-300">Analog Missions (e.g., NEEMO)</label></div>
+                                        <div class="flex items-center"><input id="space-tech" name="interests" type="checkbox" value="Space Tech" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-tech" class="ml-3 text-sm text-slate-300">Space Med Technology Development</label></div>
+                                        <div class="flex items-center"><input id="space-policy" name="interests" type="checkbox" value="Space Policy" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-policy" class="ml-3 text-sm text-slate-300">Aerospace Policy & Ethics</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dive Medicine Accordion -->
+                        <div class="accordion-item bg-slate-900/50 rounded-lg border border-slate-700">
+                            <button type="button" class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-200 hover:bg-slate-700/50 rounded-t-lg">
+                                <span>Dive Medicine</span>
+                                <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content">
+                               <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="space-y-3">
+                                        <h5 class="font-medium text-slate-400">Clinical & Research</h5>
+                                        <div class="flex items-center"><input id="dive-research" name="interests" type="checkbox" value="Dive Research" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-research" class="ml-3 text-sm text-slate-300">Hyperbaric & Dive Research</label></div>
+                                        <div class="flex items-center"><input id="dive-clinical" name="interests" type="checkbox" value="Dive Clinical" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-clinical" class="ml-3 text-sm text-slate-300">Clinical Dive Medicine</label></div>
+                                        <div class="flex items-center"><input id="dive-support" name="interests" type="checkbox" value="Dive Support" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-support" class="ml-3 text-sm text-slate-300">Medical Support for Scientific Dives</label></div>
+                                        <div class="flex items-center"><input id="dive-safety" name="interests" type="checkbox" value="Dive Safety" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-safety" class="ml-3 text-sm text-slate-300">Dive Safety & Accident Investigation</label></div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <h5 class="font-medium text-slate-400">Training & Certification</h5>
+                                        <div class="flex items-center"><input id="dive-cert" name="interests" type="checkbox" value="Dive Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-cert" class="ml-3 text-sm text-slate-300">Gaining Dive Certifications</label></div>
+                                        <div class="flex items-center"><input id="dmt-cert" name="interests" type="checkbox" value="DMT Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dmt-cert" class="ml-3 text-sm text-slate-300">Dive Medical Technician (DMT) Cert</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Expedition Medicine Accordion -->
+                        <div class="accordion-item bg-slate-900/50 rounded-lg border border-slate-700">
+                            <button type="button" class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-200 hover:bg-slate-700/50 rounded-t-lg">
+                                <span>Expedition Medicine</span>
+                                <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="space-y-3">
+                                        <h5 class="font-medium text-slate-400">Field Practice</h5>
+                                        <div class="flex items-center"><input id="expedition-physician" name="interests" type="checkbox" value="Expedition Physician" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="expedition-physician" class="ml-3 text-sm text-slate-300">Working on Expeditions as a Physician</label></div>
+                                        <div class="flex items-center"><input id="wilderness" name="interests" type="checkbox" value="Wilderness" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="wilderness" class="ml-3 text-sm text-slate-300">Wilderness & Remote Medicine</label></div>
+                                        <div class="flex items-center"><input id="high-altitude" name="interests" type="checkbox" value="High Altitude" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="high-altitude" class="ml-3 text-sm text-slate-300">High-Altitude & Mountaineering Med</label></div>
+                                        <div class="flex items-center"><input id="humanitarian" name="interests" type="checkbox" value="Humanitarian" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="humanitarian" class="ml-3 text-sm text-slate-300">Disaster & Humanitarian Medicine</label></div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <h5 class="font-medium text-slate-400">Training & Certification</h5>
+                                        <div class="flex items-center"><input id="wfr-cert" name="interests" type="checkbox" value="WFR Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="wfr-cert" class="ml-3 text-sm text-slate-300">Wilderness First Responder (WFR) Cert</label></div>
+                                        <div class="flex items-center"><input id="sar-training" name="interests" type="checkbox" value="SAR Training" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="sar-training" class="ml-3 text-sm text-slate-300">Search and Rescue (SAR) Training</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center pt-4">
+                    <button id="submitButton" type="submit" class="font-orbitron bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/20 flex items-center justify-center w-full md:w-auto mx-auto">
+                        <span id="buttonText">Join Our Mission</span>
+                        <span id="buttonLoader" class="hidden loader"></span>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Submission Messages -->
+            <div id="submissionMessage" class="hidden text-center mt-8 p-4 bg-green-900/50 border border-green-700 rounded-lg">
+                <p class="font-semibold text-green-300">Thank you for your interest! We've received your information and will be in touch soon.</p>
+            </div>
+            <div id="errorMessage" class="hidden text-center mt-8 p-4 bg-red-900/50 border border-red-700 rounded-lg">
+                <p class="font-semibold text-red-300">Something went wrong. Please try again later.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- Accordion Logic ---
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                button.classList.toggle('open');
+                content.classList.toggle('open');
+            });
+        });
+
+        // --- Form Submission to Google Sheet ---
+        const form = document.getElementById('interestForm');
+        const submitButton = document.getElementById('submitButton');
+        const buttonText = document.getElementById('buttonText');
+        const buttonLoader = document.getElementById('buttonLoader');
+        const submissionMessage = document.getElementById('submissionMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // IMPORTANT: Replace this with your own Google Apps Script Web App URL
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwaRn-17G0BVcrVneCOlPgr9v_RlW6ZQaeXhvJm49Z4kPTaWD36ERY7l1MsDUoM3MOB/exec';
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            // Show loader and disable button
+            buttonText.classList.add('hidden');
+            buttonLoader.classList.remove('hidden');
+            submitButton.disabled = true;
+
+            // Collect all checked interests
+            const interestsCheckboxes = document.querySelectorAll('input[name="interests"]:checked');
+            const interests = Array.from(interestsCheckboxes).map(cb => cb.value).join(', ');
+
+            // Create form data object from the form
+            const formData = new FormData(form);
+            // We are creating a new object to send because FormData can't be stringified directly
+            // and we want to control the data sent.
+            const dataToSend = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                interests: interests,
+            };
+
+            fetch(googleScriptURL, {
+                method: 'POST',
+                // Google Apps Script in this configuration can't directly handle FormData
+                // with fetch when deployed as a web app for anonymous users.
+                // We redirect the POST request through a temporary proxy to handle CORS.
+                // A better approach is to send a plain object and handle it in the script.
+                // However, for simplicity with your existing script, we'll try a different approach.
+                // We will construct a new FormData object to send.
+                body: new URLSearchParams(dataToSend)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    form.classList.add('hidden');
+                    submissionMessage.classList.remove('hidden');
+                    errorMessage.classList.add('hidden');
+                } else {
+                    throw new Error(data.message || 'Unknown error from script');
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                errorMessage.classList.remove('hidden');
+                // Hide loader and re-enable button
+                buttonText.classList.remove('hidden');
+                buttonLoader.classList.add('hidden');
+                submitButton.disabled = false;
+            });
+        });
+
+        // --- Animated Starfield Background ---
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.body.scrollHeight; // Make canvas as tall as the content
+        }
+
+        let stars = [];
+        let comets = [];
+        const numStars = 400;
+
+        function Star(x, y, radius, opacity) {
+            this.x = x; this.y = y; this.radius = radius; this.opacity = opacity;
+            this.fadingIn = true; this.fadeSpeed = Math.random() * 0.015;
+        }
+
+        Star.prototype.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.fill();
+        };
+
+        Star.prototype.update = function() {
+            if (this.fadingIn) {
+                this.opacity += this.fadeSpeed;
+                if (this.opacity >= 1) { this.opacity = 1; this.fadingIn = false; }
+            } else {
+                this.opacity -= this.fadeSpeed;
+                if (this.opacity <= 0.1) { this.opacity = 0.1; this.fadingIn = true; }
+            }
+        };
+
+        function Comet() { this.reset(); }
+
+        Comet.prototype.reset = function() {
+            this.x = Math.random() * canvas.width; this.y = 0;
+            this.radius = Math.random() * 2 + 1;
+            this.speed = { x: (Math.random() - 0.5) * 10, y: Math.random() * 5 + 5 };
+            this.length = Math.random() * 80 + 50; this.opacity = 1;
+        };
+
+        Comet.prototype.draw = function() {
+            for (let i = 0; i < this.length; i++) {
+                ctx.beginPath();
+                const trailX = this.x - this.speed.x * i;
+                const trailY = this.y - this.speed.y * i;
+                const trailOpacity = this.opacity * (1 - i / this.length);
+                ctx.arc(trailX, trailY, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(173, 216, 230, ${trailOpacity})`;
+                ctx.fill();
+            }
+        };
+
+        Comet.prototype.update = function() {
+            this.x += this.speed.x; this.y += this.speed.y;
+            if (this.y > canvas.height) { this.reset(); }
+        };
+
+        function init() {
+            setCanvasSize();
+            stars = [];
+            for (let i = 0; i < numStars; i++) {
+                stars.push(new Star(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 1.5, Math.random()));
+            }
+            comets = [new Comet(), new Comet()];
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => { star.update(); star.draw(); });
+            comets.forEach(comet => { comet.update(); comet.draw(); });
+            requestAnimationFrame(animate);
+        }
+        
+        setInterval(() => { if (comets.length < 3) { comets.push(new Comet()); } }, 5000);
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+    </script>
+
+</body>
+</html>
