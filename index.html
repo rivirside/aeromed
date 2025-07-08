@@ -74,7 +74,7 @@
         <div class="max-w-5xl w-full bg-slate-800/70 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-12 border border-slate-700">
 
             <!-- Header Section -->
-            <div class="text-center mb-8">
+            <div id="header" class="text-center mb-8">
                 <h1 class="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wider text-cyan-300">ADEM SIG</h1>
                 <p class="mt-2 text-lg sm:text-xl text-slate-300">Aerospace, Dive, & Expedition Medicine</p>
                 <p class="mt-4 max-w-3xl mx-auto text-slate-400">
@@ -116,21 +116,21 @@
                                 <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="accordion-content">
-                                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="space-y-3">
+                                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                                    <div class="space-y-4">
                                         <h5 class="font-medium text-slate-400">Research & Physiology</h5>
-                                        <div class="flex items-center"><input id="space-research" name="interests" type="checkbox" value="Space Research" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-research" class="ml-3 text-sm text-slate-300">Space Medicine Research</label></div>
-                                        <div class="flex items-center"><input id="space-physiology" name="interests" type="checkbox" value="Space Physiology" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-physiology" class="ml-3 text-sm text-slate-300">Spaceflight Physiology & Deconditioning</label></div>
-                                        <div class="flex items-center"><input id="space-radiation" name="interests" type="checkbox" value="Space Radiation" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-radiation" class="ml-3 text-sm text-slate-300">Space Radiation Health</label></div>
-                                        <div class="flex items-center"><input id="space-behavioral" name="interests" type="checkbox" value="Space Behavioral" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-behavioral" class="ml-3 text-sm text-slate-300">Behavioral Health in Isolation</label></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-research" name="interests" type="checkbox" value="Space Research" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-research" class="font-medium text-slate-300">Space Medicine Research</label><p class="text-xs text-slate-400">Contribute to studies on human health in space, from microgravity to radiation.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-physiology" name="interests" type="checkbox" value="Space Physiology" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-physiology" class="font-medium text-slate-300">Spaceflight Physiology & Deconditioning</label><p class="text-xs text-slate-400">Study the effects of spaceflight on the human body and how to counteract them.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-radiation" name="interests" type="checkbox" value="Space Radiation" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-radiation" class="font-medium text-slate-300">Space Radiation Health</label><p class="text-xs text-slate-400">Focus on the risks of space radiation and developing protective measures.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-behavioral" name="interests" type="checkbox" value="Space Behavioral" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-behavioral" class="font-medium text-slate-300">Behavioral Health in Isolation</label><p class="text-xs text-slate-400">Explore the psychological challenges of long-duration space missions.</p></div></div>
                                     </div>
-                                    <div class="space-y-3">
+                                    <div class="space-y-4">
                                         <h5 class="font-medium text-slate-400">Clinical, Operations & Policy</h5>
-                                        <div class="flex items-center"><input id="space-clinical" name="interests" type="checkbox" value="Space Clinical" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-clinical" class="ml-3 text-sm text-slate-300">Clinical Practice (Aviation/Space)</label></div>
-                                        <div class="flex items-center"><input id="space-missions" name="interests" type="checkbox" value="Space Missions" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-missions" class="ml-3 text-sm text-slate-300">Designing Medical Missions for Space</label></div>
-                                        <div class="flex items-center"><input id="space-analog" name="interests" type="checkbox" value="Space Analog" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-analog" class="ml-3 text-sm text-slate-300">Analog Missions (e.g., NEEMO)</label></div>
-                                        <div class="flex items-center"><input id="space-tech" name="interests" type="checkbox" value="Space Tech" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-tech" class="ml-3 text-sm text-slate-300">Space Med Technology Development</label></div>
-                                        <div class="flex items-center"><input id="space-policy" name="interests" type="checkbox" value="Space Policy" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="space-policy" class="ml-3 text-sm text-slate-300">Aerospace Policy & Ethics</label></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-clinical" name="interests" type="checkbox" value="Space Clinical" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-clinical" class="font-medium text-slate-300">Clinical Practice (Aviation/Space)</label><p class="text-xs text-slate-400">Learn about the medical care of pilots, aircrew, and astronauts.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-missions" name="interests" type="checkbox" value="Space Missions" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-missions" class="font-medium text-slate-300">Designing Medical Missions for Space</label><p class="text-xs text-slate-400">Help plan the medical systems and protocols for future space voyages.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-analog" name="interests" type="checkbox" value="Space Analog" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-analog" class="font-medium text-slate-300">Analog Missions (e.g., NEEMO)</label><p class="text-xs text-slate-400">Participate in Earth-based missions that simulate space environments.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-tech" name="interests" type="checkbox" value="Space Tech" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-tech" class="font-medium text-slate-300">Space Med Technology Development</label><p class="text-xs text-slate-400">Innovate new medical devices and software for use in space.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="space-policy" name="interests" type="checkbox" value="Space Policy" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="space-policy" class="font-medium text-slate-300">Aerospace Policy & Ethics</label><p class="text-xs text-slate-400">Discuss the laws, ethics, and guidelines that govern space medicine.</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -142,18 +142,18 @@
                                 <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="accordion-content">
-                               <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="space-y-3">
+                               <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                                    <div class="space-y-4">
                                         <h5 class="font-medium text-slate-400">Clinical & Research</h5>
-                                        <div class="flex items-center"><input id="dive-research" name="interests" type="checkbox" value="Dive Research" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-research" class="ml-3 text-sm text-slate-300">Hyperbaric & Dive Research</label></div>
-                                        <div class="flex items-center"><input id="dive-clinical" name="interests" type="checkbox" value="Dive Clinical" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-clinical" class="ml-3 text-sm text-slate-300">Clinical Dive Medicine</label></div>
-                                        <div class="flex items-center"><input id="dive-support" name="interests" type="checkbox" value="Dive Support" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-support" class="ml-3 text-sm text-slate-300">Medical Support for Scientific Dives</label></div>
-                                        <div class="flex items-center"><input id="dive-safety" name="interests" type="checkbox" value="Dive Safety" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-safety" class="ml-3 text-sm text-slate-300">Dive Safety & Accident Investigation</label></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="dive-research" name="interests" type="checkbox" value="Dive Research" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="dive-research" class="font-medium text-slate-300">Hyperbaric & Dive Research</label><p class="text-xs text-slate-400">Investigate the effects of pressure on the body and hyperbaric treatments.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="dive-clinical" name="interests" type="checkbox" value="Dive Clinical" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="dive-clinical" class="font-medium text-slate-300">Clinical Dive Medicine</label><p class="text-xs text-slate-400">Focus on the diagnosis and treatment of diving-related injuries and illnesses.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="dive-support" name="interests" type="checkbox" value="Dive Support" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="dive-support" class="font-medium text-slate-300">Medical Support for Scientific Dives</label><p class="text-xs text-slate-400">Provide medical oversight for underwater research and exploration.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="dive-safety" name="interests" type="checkbox" value="Dive Safety" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="dive-safety" class="font-medium text-slate-300">Dive Safety & Accident Investigation</label><p class="text-xs text-slate-400">Learn to analyze dive accidents and improve safety procedures.</p></div></div>
                                     </div>
-                                    <div class="space-y-3">
+                                    <div class="space-y-4">
                                         <h5 class="font-medium text-slate-400">Training & Certification</h5>
-                                        <div class="flex items-center"><input id="dive-cert" name="interests" type="checkbox" value="Dive Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dive-cert" class="ml-3 text-sm text-slate-300">Gaining Dive Certifications</label></div>
-                                        <div class="flex items-center"><input id="dmt-cert" name="interests" type="checkbox" value="DMT Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="dmt-cert" class="ml-3 text-sm text-slate-300">Dive Medical Technician (DMT) Cert</label></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="dive-cert" name="interests" type="checkbox" value="Dive Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="dive-cert" class="font-medium text-slate-300">Gaining Dive Certifications</label><p class="text-xs text-slate-400">Get certified for recreational or scientific diving (e.g., Open Water, Rescue Diver).</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="dmt-cert" name="interests" type="checkbox" value="DMT Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="dmt-cert" class="font-medium text-slate-300">Dive Medical Technician (DMT) Cert</label><p class="text-xs text-slate-400">Pursue advanced training to manage dive accidents and provide chamber support.</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -165,18 +165,18 @@
                                 <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="accordion-content">
-                                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="space-y-3">
+                                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                                    <div class="space-y-4">
                                         <h5 class="font-medium text-slate-400">Field Practice</h5>
-                                        <div class="flex items-center"><input id="expedition-physician" name="interests" type="checkbox" value="Expedition Physician" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="expedition-physician" class="ml-3 text-sm text-slate-300">Working on Expeditions as a Physician</label></div>
-                                        <div class="flex items-center"><input id="wilderness" name="interests" type="checkbox" value="Wilderness" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="wilderness" class="ml-3 text-sm text-slate-300">Wilderness & Remote Medicine</label></div>
-                                        <div class="flex items-center"><input id="high-altitude" name="interests" type="checkbox" value="High Altitude" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="high-altitude" class="ml-3 text-sm text-slate-300">High-Altitude & Mountaineering Med</label></div>
-                                        <div class="flex items-center"><input id="humanitarian" name="interests" type="checkbox" value="Humanitarian" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="humanitarian" class="ml-3 text-sm text-slate-300">Disaster & Humanitarian Medicine</label></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="expedition-physician" name="interests" type="checkbox" value="Expedition Physician" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="expedition-physician" class="font-medium text-slate-300">Working on Expeditions as a Physician</label><p class="text-xs text-slate-400">Provide medical care for teams in remote locations like mountains or jungles.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="wilderness" name="interests" type="checkbox" value="Wilderness" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="wilderness" class="font-medium text-slate-300">Wilderness & Remote Medicine</label><p class="text-xs text-slate-400">Learn to practice medicine with limited resources in austere environments.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="high-altitude" name="interests" type="checkbox" value="High Altitude" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="high-altitude" class="font-medium text-slate-300">High-Altitude & Mountaineering Med</label><p class="text-xs text-slate-400">Specialize in illnesses and injuries unique to mountain environments.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="humanitarian" name="interests" type="checkbox" value="Humanitarian" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="humanitarian" class="font-medium text-slate-300">Disaster & Humanitarian Medicine</label><p class="text-xs text-slate-400">Provide medical aid in response to natural disasters or humanitarian crises.</p></div></div>
                                     </div>
-                                    <div class="space-y-3">
+                                    <div class="space-y-4">
                                         <h5 class="font-medium text-slate-400">Training & Certification</h5>
-                                        <div class="flex items-center"><input id="wfr-cert" name="interests" type="checkbox" value="WFR Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="wfr-cert" class="ml-3 text-sm text-slate-300">Wilderness First Responder (WFR) Cert</label></div>
-                                        <div class="flex items-center"><input id="sar-training" name="interests" type="checkbox" value="SAR Training" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"><label for="sar-training" class="ml-3 text-sm text-slate-300">Search and Rescue (SAR) Training</label></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="wfr-cert" name="interests" type="checkbox" value="WFR Cert" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="wfr-cert" class="font-medium text-slate-300">Wilderness First Responder (WFR) Cert</label><p class="text-xs text-slate-400">Obtain the industry standard certification for wilderness medical professionals.</p></div></div>
+                                        <div class="relative flex items-start"><div class="flex h-5 items-center"><input id="sar-training" name="interests" type="checkbox" value="SAR Training" class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-blue-500 focus:ring-blue-500"></div><div class="ml-3 text-sm"><label for="sar-training" class="font-medium text-slate-300">Search and Rescue (SAR) Training</label><p class="text-xs text-slate-400">Learn the skills needed to find and provide aid to persons in distress.</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -194,89 +194,101 @@
             </form>
             
             <!-- Submission Messages -->
-            <div id="submissionMessage" class="hidden text-center mt-8 p-4 bg-green-900/50 border border-green-700 rounded-lg">
-                <p class="font-semibold text-green-300">Thank you for your interest! We've received your information and will be in touch soon.</p>
+            <div id="submissionMessage" class="hidden text-center mt-8">
+                <div class="p-4 bg-green-900/50 border border-green-700 rounded-lg">
+                    <p class="font-semibold text-green-300">Thank you! Your submission has been received.</p>
+                </div>
+                <button id="newFormButton" class="mt-6 font-orbitron bg-slate-600 hover:bg-slate-500 text-white font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                    Next Student
+                </button>
             </div>
             <div id="errorMessage" class="hidden text-center mt-8 p-4 bg-red-900/50 border border-red-700 rounded-lg">
-                <p class="font-semibold text-red-300">Something went wrong. Please try again later.</p>
+                <!-- Error messages will be inserted here by the script -->
             </div>
 
         </div>
     </div>
 
     <script>
-        // --- Accordion Logic ---
-        const accordionButtons = document.querySelectorAll('.accordion-button');
-        accordionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                button.classList.toggle('open');
-                content.classList.toggle('open');
-            });
-        });
-
-        // --- Form Submission to Google Sheet ---
+        // --- Element References ---
         const form = document.getElementById('interestForm');
         const submitButton = document.getElementById('submitButton');
         const buttonText = document.getElementById('buttonText');
         const buttonLoader = document.getElementById('buttonLoader');
         const submissionMessage = document.getElementById('submissionMessage');
         const errorMessage = document.getElementById('errorMessage');
-        
-        // IMPORTANT: Replace this with your own Google Apps Script Web App URL
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwaRn-17G0BVcrVneCOlPgr9v_RlW6ZQaeXhvJm49Z4kPTaWD36ERY7l1MsDUoM3MOB/exec';
+        const newFormButton = document.getElementById('newFormButton');
+        const header = document.getElementById('header');
+
+        // --- Accordion Logic ---
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                accordionButtons.forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.classList.remove('open');
+                        otherButton.nextElementSibling.classList.remove('open');
+                    }
+                });
+                button.classList.toggle('open');
+                content.classList.toggle('open');
+            });
+        });
+
+        // --- Form Submission Logic ---
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycby7ik9s_bBzS1Kx9ObRhqQ1ln7U0FxR9WznbPZoxtSukDyPrJbbgiBBggQnMoN0vLeF/exec';
 
         form.addEventListener('submit', function(event) {
             event.preventDefault(); 
             
-            // Show loader and disable button
             buttonText.classList.add('hidden');
             buttonLoader.classList.remove('hidden');
             submitButton.disabled = true;
+            errorMessage.classList.add('hidden');
 
-            // Collect all checked interests
-            const interestsCheckboxes = document.querySelectorAll('input[name="interests"]:checked');
-            const interests = Array.from(interestsCheckboxes).map(cb => cb.value).join(', ');
-
-            // Create form data object from the form
             const formData = new FormData(form);
-            // We are creating a new object to send because FormData can't be stringified directly
-            // and we want to control the data sent.
-            const dataToSend = {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                interests: interests,
-            };
+            
+            // Special handling for checkboxes
+            const interests = Array.from(form.querySelectorAll('input[name="interests"]:checked')).map(cb => cb.value);
+            formData.set('interests', interests.join(', '));
+
 
             fetch(googleScriptURL, {
                 method: 'POST',
-                // Google Apps Script in this configuration can't directly handle FormData
-                // with fetch when deployed as a web app for anonymous users.
-                // We redirect the POST request through a temporary proxy to handle CORS.
-                // A better approach is to send a plain object and handle it in the script.
-                // However, for simplicity with your existing script, we'll try a different approach.
-                // We will construct a new FormData object to send.
-                body: new URLSearchParams(dataToSend)
+                body: formData,
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
+            .then(response => {
+                if (response.ok || response.type === 'opaque') {
+                    header.classList.add('hidden');
                     form.classList.add('hidden');
                     submissionMessage.classList.remove('hidden');
-                    errorMessage.classList.add('hidden');
                 } else {
-                    throw new Error(data.message || 'Unknown error from script');
+                    return response.text().then(text => { throw new Error(`Server responded with an error: ${text}`) });
                 }
             })
             .catch(error => {
-                console.error('Error!', error.message);
+                console.error('Error!', error);
+                errorMessage.innerHTML = `<p class="font-semibold text-red-300">Submission failed. Please try again.</p><p class="text-sm text-red-400 mt-2">${error.message}</p>`;
                 errorMessage.classList.remove('hidden');
-                // Hide loader and re-enable button
                 buttonText.classList.remove('hidden');
                 buttonLoader.classList.add('hidden');
                 submitButton.disabled = false;
+            });
+        });
+
+        // --- New Form Button Logic ---
+        newFormButton.addEventListener('click', () => {
+            submissionMessage.classList.add('hidden');
+            header.classList.remove('hidden');
+            form.classList.remove('hidden');
+            form.reset();
+            buttonText.classList.remove('hidden');
+            buttonLoader.classList.add('hidden');
+            submitButton.disabled = false;
+            accordionButtons.forEach(button => {
+                button.classList.remove('open');
+                button.nextElementSibling.classList.remove('open');
             });
         });
 
@@ -286,7 +298,7 @@
 
         function setCanvasSize() {
             canvas.width = window.innerWidth;
-            canvas.height = document.body.scrollHeight; // Make canvas as tall as the content
+            canvas.height = document.body.scrollHeight;
         }
 
         let stars = [];
